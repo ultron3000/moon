@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Moon Knight</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: black;
+      color: #ffcc00;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+    .movies {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .movie {
+      background: #222;
+      border: 2px solid #ffcc00;
+      border-radius: 12px;
+      width: 200px;
+      padding: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .movie:hover {
+      transform: scale(1.05);
+      background: #333;
+    }
+    .movie img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .movie-title {
+      margin-top: 10px;
+      font-size: 1em;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .movies {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .movie {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .movie img {
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>🌙 Moon Knight - Season 1</h1>
+
+<div class="movies" id="movies"></div>
+
+<script>
+const episodes = [
+  {
+    title: "The Goldfish Problem",
+    video: "https://skra.cuevasafrtba.sbs:443/v4/36/3xrmy/index-f2-v1-a1.txt",
+    image: "https://xgeeks.co.uk/wp-content/uploads/2022/03/moonknight-episode-1-the-goldfish-problem-featured.jpg?w=640"
+  },
+  {
+    title: "Summon the Suit",
+    video: "https://sipt.griseldakro.sbs:443/v4/9a/ovsaz/index-f2-v1-a1.txt",
+    image: "https://i.ytimg.com/vi/qSM-P1aWKbw/maxresdefault.jpg"
+  },
+  {
+    title: "The Friendly Type",
+    video: "https://sxic.ybarrazotz.sbs:443/v4/9a/6dfr5/index-f2-v1-a1.txt",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8HDX3hkJtSo2ciMn9lj6kQBIKQvj05F2jog&s"
+  },
+  {
+    title: "The Tomb",
+    video: "https://skra.desrocherswick.sbs:443/v4/sc/xkwua/index-f2-v1-a1.txt",
+    image: "https://xgeeks.co.uk/wp-content/uploads/2022/04/moonknight-episode-4-the-tomb-review-header.jpg?w=1004"
+  },
+  {
+    title: "Asylum",
+    video: "https://sxic.cuevasafrtba.sbs:443/v4/36/6dfrg/index-f2-v1-a1.txt",
+    image: "https://thefutureoftheforce.com/wp-content/uploads/2022/04/Moon-Knight-Episode-5-Asylum-Review.jpg"
+  },
+  {
+    title: "Gods and Monsters",
+    video: "https://sdqm.mcgarrydvan.sbs:443/v4/sc/rwl1t/index-f2-v1-a1.txt",
+    image: "https://defenderstvpodcast.com/wp-content/uploads/2022/05/TVPI-Moon-Knight-Episode-6-Gods-and-Monsters.jpg"
+  }
+];
+
+const container = document.getElementById('movies');
+episodes.forEach((episode, index) => {
+  const div = document.createElement('div');
+  div.className = 'movie';
+  div.innerHTML = `
+    <img src="${episode.image}" alt="${episode.title}">
+    <div class="movie-title">${episode.title}</div>
+  `;
+  div.onclick = () => {
+    const url = \`player.html?title=\${encodeURIComponent(episode.title)}&video=\${encodeURIComponent(episode.video)}&index=\${index}\`;
+    window.location.href = url;
+  };
+  container.appendChild(div);
+});
+</script>
+
+</body>
+</html>
