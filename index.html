@@ -113,7 +113,7 @@ episodes.forEach((episode, index) => {
     <div class="movie-title">${episode.title}</div>
   `;
   div.onclick = () => {
-    const url = \`player.html?title=\${encodeURIComponent(episode.title)}&video=\${encodeURIComponent(episode.video)}&index=\${index}\`;
+    const url = `player.html?title=${encodeURIComponent(episode.title)}&video=${encodeURIComponent(episode.video)}&index=${index}`;
     window.location.href = url;
   };
   container.appendChild(div);
